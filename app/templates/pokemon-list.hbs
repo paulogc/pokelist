@@ -1,0 +1,18 @@
+<h1>Pokemons</h1>
+
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+  {{#each model as |pokemon|}}
+    <tr>
+      <th>{{pokemon.name}}</th>
+      <td {{action 'editPokemon' pokemon}} >editar</td>
+    </tr>
+  {{/each}}
+  </tbody>
+</table>
