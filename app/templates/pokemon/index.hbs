@@ -11,7 +11,10 @@
   {{#each model as |pokemon|}}
     <tr>
       <th>{{pokemon.name}}</th>
-      <td {{action 'editPokemon' pokemon}} >editar</td>
+      <td>
+        <th>Edit</th>
+        <th>View</th>
+      </td>
     </tr>
   {{/each}}
   </tbody>
