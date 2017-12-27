@@ -7,11 +7,9 @@ const Router = EmberRouter.extend({
 });
 
 Router.map(function() {
-  this.route('pokemon-list');
-  this.route('pokemon-detail');
   this.route('pokemon', function() {
-    this.route('view');
-    this.route('edit');
+    this.route('view', { path: '/view/:pokemon_id' });
+    this.route('edit', { path: '/edit/:pokemon_id' });
     this.route('new');
   });
 });

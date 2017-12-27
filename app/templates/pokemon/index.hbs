@@ -1,7 +1,7 @@
 <h1>Pokemons</h1>
 
-<table class="table table-bordered table-striped">
-  <thead>
+<table class="table table-striped">
+  <thead class="thead-inverse">
     <tr>
       <th>Name</th>
       <th>Actions</th>
@@ -10,10 +10,10 @@
   <tbody>
   {{#each model as |pokemon|}}
     <tr>
-      <th>{{pokemon.name}}</th>
+      <td>{{pokemon.name}}</td>
       <td>
-        <th>Edit</th>
-        <th>View</th>
+        {{#link-to 'pokemon.edit' pokemon.id}}Edit{{/link-to}}
+        {{#link-to 'pokemon.view' pokemon.id}}Details{{/link-to}}
       </td>
     </tr>
   {{/each}}
