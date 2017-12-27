@@ -2,6 +2,7 @@ import Route from '@ember/routing/route';
 
 
 export default Route.extend({
+  isLoading: true,
   model() {
     return this.store.query(
       'pokemon',
@@ -9,7 +10,10 @@ export default Route.extend({
         limit: 100,
         offset: 20
       }
-    ).then(pokemon => pokemon);
+    ).then(pokemon => {
+      this.set('isLoading', false);
+      return pokemon;
+    });
   },
 
   actions: {

@@ -18,12 +18,13 @@ export default DS.RESTSerializer.extend({
     } else {
       const pokemonName = payload.forms[0].name;
       const abilities = payload.abilities.map((ability) => {
-        return { name: ability.anme }
+        return { name: ability.ability.name }
       });
       const image = payload.sprites.front_default
       store.findRecord('pokemon', pokemonName).then((pokemon) => {
         pokemon.set('abilities', abilities);
         pokemon.set('image', image);
+        pokemon.save();
       });
 
       return this._super(store, primaryModelClass, payload, id, requestType)

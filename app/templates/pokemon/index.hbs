@@ -1,21 +1,24 @@
 <h1>Pokemons</h1>
-
-<table class="table table-striped">
-  <thead class="thead-inverse">
-    <tr>
-      <th>Name</th>
-      <th>Actions</th>
-    </tr>
-  </thead>
-  <tbody>
-  {{#each model as |pokemon|}}
-    <tr>
-      <td>{{pokemon.name}}</td>
-      <td>
-        {{#link-to 'pokemon.edit' pokemon.id}}Edit{{/link-to}}
-        {{#link-to 'pokemon.view' pokemon.id}}Details{{/link-to}}
-      </td>
-    </tr>
-  {{/each}}
-  </tbody>
-</table>
+{{#if isLoading}}
+  <div>...Loading</div>
+{{else}}
+  <table class="table table-striped">
+    <thead class="thead-inverse">
+      <tr>
+        <th>Name</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+    {{#each model as |pokemon|}}
+      <tr>
+        <td>{{pokemon.name}}</td>
+        <td>
+          {{#link-to 'pokemon.edit' pokemon.id}}Edit{{/link-to}}
+          {{#link-to 'pokemon.view' pokemon.id}}Details{{/link-to}}
+        </td>
+      </tr>
+    {{/each}}
+    </tbody>
+  </table>
+{{/if}}
