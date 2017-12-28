@@ -4,6 +4,6 @@ export default DS.Model.extend({
   name: DS.attr('string'),
   url: DS.attr('string'),
   image: DS.attr('string'),
+  updateDate: DS.attr('date'),
   abilities: DS.attr(),
-  lastUpdate: DS.attr('string'),
 });

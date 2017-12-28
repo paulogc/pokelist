@@ -20,6 +20,10 @@ export default Controller.extend({
     savePokemon() {
       this.set('isSaved', true);
       this.set('willSave', false);
+    },
+
+    didTransition() {
+      this.set('isSaved', true);
     }
   }
 });

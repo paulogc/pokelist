@@ -29,7 +29,7 @@ export default Controller.extend({
               name: ability
             },
           ],
-          lastUpdate: moment().format('x'),
+          lastUpdate: moment().format('YYYY-MM-DD-HH-mm'),
         }
       );
       this.set('successMessage', 'Pokemon has been created successfully');
@@ -39,6 +39,6 @@ export default Controller.extend({
       this.set('willSave', false);
       
       newPokemon.save();
-    }
+    },
   }
 });
