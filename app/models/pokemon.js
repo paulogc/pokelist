@@ -5,4 +5,5 @@ export default DS.Model.extend({
   url: DS.attr('string'),
   image: DS.attr('string'),
   abilities: DS.attr(),
+  lastUpdate: DS.attr('string'),
 });

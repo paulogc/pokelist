@@ -1,28 +1,17 @@
 import Route from '@ember/routing/route';
 
 export default Route.extend({
-  isLoading: true,
   isDisabled: false,
 
   model() {
-    this.get('store').findRecord('api-infos', 'next').then((apiInfo) => {
-      this.set('limit', apiInfo.limit);
-      this.set('offset', apiInfo.offset);
-    }).catch(() => {
-      this.set('limit', 20);
-      this.set('offset', 20);
-      const newApiInfo =
-        this.store.createRecord('api-infos', { id: 'next', offset: 20, limit: 20 });
-      newApiInfo.save();
-    });
     return this.store.query(
       'pokemon',
       {
-        limit: this.get('limit'), 
-        offset: this.get('offset'),
+        limit: 40, 
+        offset: 40,
       }
     ).then(pokemon => {
-      this.set('isLoading', false);
+      this.controllerFor('pokemon.index').set('isLoading', false);
       return pokemon;
     });
   },

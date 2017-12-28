@@ -1,4 +1,5 @@
 import DS from 'ember-data';
+import moment from 'moment';
 
 export default DS.RESTSerializer.extend({
   normalizeResponse(store, primaryModelClass, payload, id, requestType) {
@@ -22,10 +23,7 @@ export default DS.RESTSerializer.extend({
         return { name: ability.ability.name }
       });
       const image = payload.sprites.front_default
-      // store.findRecord('pokemon', pokemonName).then((pokemon) => {
-      //   pokemon.set('abilities', abilities);
-      //   pokemon.set('image', image);
-      // });
+      
       const pokemon = [
         {
           id: pokemonName,
@@ -33,6 +31,7 @@ export default DS.RESTSerializer.extend({
           url,
           image,
           abilities,
+          lastUpdate: moment().format('x'),
         },
       ];
       payload = { pokemon };
