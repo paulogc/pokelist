@@ -1,6 +1,13 @@
+@import "ember-modal-dialog/ember-modal-structure";
+@import "ember-modal-dialog/ember-modal-appearance";
+
 @import "bootstrap";
 
 .item-actions {
   display: flex;
   justify-content: space-around;
+}
+
+.modal {
+  width: 300px;
 }

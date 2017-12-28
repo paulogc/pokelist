@@ -2,6 +2,7 @@
 {{#if isLoading}}
   <div>...Loading</div>
 {{else}}
+  {{input type="text" class="form-control" value=filter placeholder="Search"}}
   <table class="table table-striped">
     <thead class="thead-inverse">
       <tr>
@@ -10,7 +11,7 @@
       </tr>
     </thead>
     <tbody>
-    {{#each model as |pokemon|}}
+    {{#each filteredPokemon as |pokemon|}}
       <tr>
         <td>{{pokemon.name}}</td>
         <td>
