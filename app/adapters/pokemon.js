@@ -6,9 +6,10 @@ export default DS.RESTAdapter.extend({
   pathForType: type => type,
 
   ajax: function(url, type, hash) {
+    console.log('HAHAHAHA');
     if (hash && type === 'PUT') {
       hash.headers = {
-        'put': 'put-pokemon',
+        'pokemon-edit': true,
       }
     }
 
