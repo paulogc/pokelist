@@ -1,4 +1,4 @@
-<h1>Pokemons</h1>
+<h1>Pokemon</h1>
 {{#if isLoading}}
   <div>...Loading</div>
 {{else}}
@@ -21,4 +21,7 @@
     {{/each}}
     </tbody>
   </table>
+  <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-4 col-md-3">
+      <button disabled={{isDisabled}} {{action 'loadMore'}} class="btn btn-primary btn-lg btn-block">Load More</button>
+  </div>
 {{/if}}
