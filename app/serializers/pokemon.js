@@ -17,15 +17,25 @@ export default DS.RESTSerializer.extend({
       return this._super(store, primaryModelClass, payload, id, requestType)
     } else {
       const pokemonName = payload.forms[0].name;
+      const url = payload.forms[0].url;
       const abilities = payload.abilities.map((ability) => {
         return { name: ability.ability.name }
       });
       const image = payload.sprites.front_default
-      store.findRecord('pokemon', pokemonName).then((pokemon) => {
-        pokemon.set('abilities', abilities);
-        pokemon.set('image', image);
-        pokemon.save();
-      });
+      // store.findRecord('pokemon', pokemonName).then((pokemon) => {
+      //   pokemon.set('abilities', abilities);
+      //   pokemon.set('image', image);
+      // });
+      const pokemon = [
+        {
+          id: pokemonName,
+          name: pokemonName,
+          url,
+          image,
+          abilities,
+        },
+      ];
+      payload = { pokemon };
 
       return this._super(store, primaryModelClass, payload, id, requestType)
     }
