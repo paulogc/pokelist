@@ -15,7 +15,6 @@ export default DS.RESTSerializer.extend({
           })
       });
       payload = { pokemon };
-      return this._super(store, primaryModelClass, payload, id, requestType)
     } else {
       const pokemonName = payload.forms[0].name;
       const url = payload.forms[0].url;
@@ -36,7 +35,7 @@ export default DS.RESTSerializer.extend({
       ];
       payload = { pokemon };
 
-      return this._super(store, primaryModelClass, payload, id, requestType)
     }
+    return this._super(store, primaryModelClass, payload, id, requestType)
   }
 });
