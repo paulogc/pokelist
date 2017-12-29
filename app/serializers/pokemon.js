@@ -12,7 +12,7 @@ export default DS.RESTSerializer.extend({
             id: pokemonItem.name,
             name: pokemonItem.name,
             url: pokemonItem.url,
-            lastUpdate: moment().format('YYYY-MM-DD-HH-mm'),
+            lastUpdate: moment().format('YYYY-MM-DD HH:mm'),
           }
         )
       });
@@ -32,7 +32,7 @@ export default DS.RESTSerializer.extend({
           url,
           image,
           abilities,
-          lastUpdate: moment().format('YYYY-MM-DD-HH-mm'),
+          lastUpdate: moment().format('YYYY-MM-DD HH:mm'),
         },
       ];
       payload = { pokemon };

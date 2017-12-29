@@ -25,7 +25,7 @@ export default Controller.extend({
       this.store.findRecord('pokemon', this.get('model.id')).then((pokemon) => {
         pokemon.set('name', this.get('model.name'));
         pokemon.set('abilities', this.get('model.abilities'));
-        pokemon.set('updateDate', moment().format('YYYY-MM-DD-HH-mm'));
+        pokemon.set('updateDate', moment().format('YYYY-MM-DD HH:mm'));
         pokemon.save();
       })
     },
